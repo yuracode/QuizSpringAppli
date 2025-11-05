@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>クイズ</title>
+    <!--
+        このテンプレートは 1 問ずつ問題を表示するページです。
+        専門学校生向けのポイント:
+        - Thymeleaf の式（${...}）でサーバ側から渡された値を埋め込みます。
+        - コントローラ側では Model に `question`, `no`, `total` を設定して渡します。
+    -->
+</head>
+<body>
+    <h1>クイズ</h1>
+    <!-- 現在の問題番号と総問題数を表示 -->
+    <p th:text="'問題 ' + ${no} + ' / ' + ${total}"></p>
+    
+    <!--
+        回答フォーム
+        - method="post" で /quiz/answer に送信します（コントローラが受け取る）。
+        - hidden フィールド `no` は現在の問題番号をサーバへ送るために使います。
+        - ラジオボタンの value は A/B/C/D を送ります。バックエンドで正解と比較します。
+        - 実務的な注意: CSRF トークンなどのセキュリティ対策は実プロジェクトで必須です。
+    -->
+    <form method="post" action="/quiz/answer">
+        <!-- 現在の問題番号を次のリクエストに渡すための hidden input -->
+        <input type="hidden" name="no" th:value="${no}">
+        
+        <!-- 問題文（question.text は Question モデルのプロパティ） -->
+        <h3 th:text="${question.text}"></h3>
+
+        <!--
+            選択肢（ラジオボタン）
+            - name="answer" を全選択肢で共通にすることで単一選択を実現
+            - required 属性は必須選択をブラウザ側で担保する（UX 向上）
+        -->
+        <label>
+            <input type="radio" name="answer" value="A" required>
+            <span th:text="${question.optionA}"></span>
+        </label><br>
+        <label>
+            <input type="radio" name="answer" value="B">
+            <span th:text="${question.optionB}"></span>
+        </label><br>
+        <label>
+            <input type="radio" name="answer" value="C">
+            <span th:text="${question.optionC}"></span>
+        </label><br>
+        <label>
+            <input type="radio" name="answer" value="D">
+            <span th:text="${question.optionD}"></span>
+        </label>
+        
+        <!-- 次へボタンを押すと /quiz/answer に POST され、Controller 側で正誤判定して次の画面へリダイレクトします -->
+        <p><button type="submit">次へ</button></p>
+    </form>
+</body>
+</html>

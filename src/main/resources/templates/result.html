@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>結果</title>
+</head>
+<body>
+    <h1>結果</h1>
+    <p th:text="${userName}"></p>
+    <p th:text="${correct} + '/' + ${total}"></p>
+    <a href="/quiz/">トップへ</a>
+</body>
+</html>

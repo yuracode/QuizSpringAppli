@@ -1,0 +1,73 @@
+# Gradle / build
+.gradle/
+build/
+out/
+bin/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# VS Code
+.vscode/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+target/
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# Temporary files
+tmp/
+temp/
+
+# Environment files (optional, often contain secrets)
+.env
+.env.*
+
+# Keystore and certificates
+*.jks
+*.keystore
+
+# Node (if any frontend)
+node_modules/
+
+# Generated sources (IDE/build tools)
+/generated/
+/generated-sources/
+
+# Ignore IDE specific run configs and local settings
+run/
+local.properties
+
+# Ignore gradle wrapper jar cache directory
+gradle/wrapper/
+
+# Allow Gradle wrapper jar if committed (do not ignore the wrapper jar file itself)
+!gradle/wrapper/gradle-wrapper.jar
+
+# Other user-specific files
+*.swp
+*.swo
+*~
+
+# Keep track: add anything project-specific later as needed
