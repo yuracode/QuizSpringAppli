@@ -2,28 +2,14 @@
 -- Phase 1: 初期データ
 -- ========================================
 
-INSERT INTO questions (text, option_a, option_b, option_c, option_d, correct_answer) VALUES
-('Javaのprintlnはどのクラスにある?', 'System.in', 'System.out', 'System.err', 'System.log', 'B'),
-('Javaのint型は何ビット?', '8', '16', '32', '64', 'C'),
-('Spring Bootのデフォルトポートは?', '3000', '8080', '5000', '9000', 'B'),
-('JavaでNullPointerExceptionが発生する原因は?', 'メモリ不足', 'null参照', '型変換エラー', '無限ループ', 'B'),
-('MyBatisで使用するアノテーションは?', '@Service', '@Mapper', '@Controller', '@Component', 'B');
-
--- ========================================
--- Phase 2: カテゴリ別データ
--- ========================================
-
-/*
-TODO Phase 2: このコメントを解除してデータを追加
-
--- カテゴリデータ
+-- まずカテゴリを投入
 INSERT INTO categories (name) VALUES
 ('Java基礎'),
 ('Spring Boot'),
 ('データベース'),
 ('ネットワーク');
 
--- 問題データ（category_id付き）
+-- カテゴリ付き問題データ
 INSERT INTO questions (category_id, text, option_a, option_b, option_c, option_d, correct_answer) VALUES
 -- Java基礎
 (1, 'Javaのprintlnはどのクラスにある?', 'System.in', 'System.out', 'System.err', 'System.log', 'B'),
@@ -42,4 +28,9 @@ INSERT INTO questions (category_id, text, option_a, option_b, option_c, option_d
 -- ネットワーク
 (4, 'HTTPSのポート番号は?', '80', '443', '8080', '3000', 'B'),
 (4, 'IPアドレスのバージョンは?', 'v1とv2', 'v4とv6', 'v3とv5', 'v2とv4', 'B');
-*/
+
+-- ========================================
+-- Phase 2: カテゴリ別データ
+-- ========================================
+
+-- Phase2 データ反映済み

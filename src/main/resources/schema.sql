@@ -3,36 +3,12 @@
 -- ========================================
 
 DROP TABLE IF EXISTS questions;
-
-CREATE TABLE questions (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    text VARCHAR(500) NOT NULL,
-    option_a VARCHAR(200) NOT NULL,
-    option_b VARCHAR(200) NOT NULL,
-    option_c VARCHAR(200) NOT NULL,
-    option_d VARCHAR(200) NOT NULL,
-    correct_answer CHAR(1) NOT NULL
-);
-
--- ========================================
--- Phase 2: カテゴリテーブル追加
--- ========================================
-
-/*
-TODO Phase 2: このコメントを解除してテーブルを追加
-
--- カテゴリテーブル
 DROP TABLE IF EXISTS categories;
 
 CREATE TABLE categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
-
--- questionsテーブルにcategory_idを追加
--- 注意: 既存のquestionsテーブルを削除して再作成する必要がある
-
-DROP TABLE IF EXISTS questions;
 
 CREATE TABLE questions (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -45,7 +21,12 @@ CREATE TABLE questions (
     correct_answer CHAR(1) NOT NULL,
     FOREIGN KEY (category_id) REFERENCES categories(id)
 );
-*/
+
+-- ========================================
+-- Phase 2: カテゴリテーブル追加
+-- ========================================
+
+-- Phase2 でカテゴリ対応実装済み（上で反映）
 
 -- ========================================
 -- Phase 3: 結果保存テーブル追加

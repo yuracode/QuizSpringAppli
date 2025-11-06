@@ -1,34 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!--
-Phase 2: カテゴリマッパーXML
-
-TODO: このファイルをPhase 2で実装してください
--->
-
 <mapper namespace="com.example.quiz.mapper.CategoryMapper">
-    
-    <!--
-    全カテゴリを取得
-    
-    TODO: SELECT文を書く
-    ヒント: SELECT * FROM categories ORDER BY id
-    -->
-    <!--
-    <select id="findAll" resultType="Category">
+    <!-- 全カテゴリ取得 -->
+    <select id="findAll" resultType="com.example.quiz.model.Category">
+        SELECT * FROM categories ORDER BY id
     </select>
-    -->
-    
-    <!--
-    IDでカテゴリを取得
-    
-    TODO: SELECT文を書く
-    ヒント: WHERE id = #{id}
-    -->
-    <!--
-    <select id="findById" parameterType="Integer" resultType="Category">
+
+    <!-- IDでカテゴリ取得 -->
+    <select id="findById" parameterType="Integer" resultType="com.example.quiz.model.Category">
+        SELECT * FROM categories WHERE id = #{id}
     </select>
-    -->
-    
 </mapper>

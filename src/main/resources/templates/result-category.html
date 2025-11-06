@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>カテゴリ別結果</title>
+</head>
+<body>
+<h1>カテゴリ別結果</h1>
+<p th:text="${userName}"></p>
+<p th:text="${category != null} ? ${category.name} : 'カテゴリ不明'"></p>
+<p th:text="${correct} + '/' + ${total}"></p>
+<a href="/quiz/categories">カテゴリ選択へ戻る</a> | <a href="/quiz/">通常版トップ</a>
+</body>
+</html>

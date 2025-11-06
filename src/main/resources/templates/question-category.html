@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${category != null} ? ${category.name} + ' クイズ' : 'クイズ'"></title>
+</head>
+<body>
+<h1 th:text="${category != null} ? ${category.name} + ' クイズ' : 'クイズ'"></h1>
+<p th:text="'問題 ' + ${no} + ' / ' + ${total}"></p>
+
+<form method="post" action="/quiz/answer-category">
+    <input type="hidden" name="no" th:value="${no}">
+    <h3 th:text="${question.text}"></h3>
+
+    <label>
+        <input type="radio" name="answer" value="A" required>
+        <span th:text="${question.optionA}"></span>
+    </label><br>
+    <label>
+        <input type="radio" name="answer" value="B">
+        <span th:text="${question.optionB}"></span>
+    </label><br>
+    <label>
+        <input type="radio" name="answer" value="C">
+        <span th:text="${question.optionC}"></span>
+    </label><br>
+    <label>
+        <input type="radio" name="answer" value="D">
+        <span th:text="${question.optionD}"></span>
+    </label>
+
+    <p><button type="submit">次へ</button></p>
+</form>
+</body>
+</html>

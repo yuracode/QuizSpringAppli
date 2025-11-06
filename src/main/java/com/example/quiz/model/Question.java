@@ -24,12 +24,12 @@ public class Question {
      * 
      * Phase 2で使用
      */
-    // private Integer categoryId;
+    private Integer categoryId;
     
     /**
      * カテゴリ名（JOIN時に取得）
      * 
      * Phase 2で使用
      */
-    // private String categoryName;
+    private String categoryName;
 }
