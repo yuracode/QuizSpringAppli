@@ -23,11 +23,32 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5'
+	implementation 'com.h2database:h2'
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
+}
+
+// パラメータ名を保持するための設定
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-parameters'
+}
+
+// Eclipse対策：無限ビルド防止（強化版）
+tasks.whenTaskAdded { task ->
+    if (task.name.startsWith('nothing')) {
+        task.enabled = false
+        task.onlyIf { false }  // 絶対に実行しない
+    }
+}
+
+// Gradle Daemon の連続実行を止める
+gradle.startParameter.continuous = false
+
+eclipse {
+    classpath {
+        downloadSources = false
+        downloadJavadoc = false
+    }
 }
