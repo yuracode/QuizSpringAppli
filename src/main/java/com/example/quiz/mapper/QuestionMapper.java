@@ -29,7 +29,7 @@ public interface QuestionMapper {
      * 
      * TODO Phase 2: QuestionMapper.xmlにSELECT文を追加
      */
-    // List<Question> findByCategoryId(Integer categoryId);
+    List<Question> findByCategoryId(Integer categoryId);
     
     /**
      * カテゴリ情報を含めて問題を取得（JOIN）

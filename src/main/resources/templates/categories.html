@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>カテゴリ選択</title>
+</head>
+<body>
+<h1>カテゴリ選択</h1>
+
+<!-- カテゴリとユーザー名を入力して /quiz/start-categories に送信 -->
+<form method="get" action="/quiz/start-categories">
+    <p>
+        <label for="categoryId">カテゴリー:</label>
+        <select id="categoryId" name="categoryId" required>
+            <option value="" disabled selected>選択してください</option>
+            <option th:each="category : ${categories}"
+                    th:value="${category.id}"
+                    th:text="${category.name + ' (' + category.questionCount + '問)'}"></option>
+        </select>
+    </p>
+    <p>
+        <label for="userName">お名前:</label>
+        <input id="userName" name="userName" type="text" required />
+    </p>
+    <p>
+        <button type="submit">カテゴリで開始</button>
+    </p>
+</form>
+
+<p><a href="/quiz/">トップへ戻る</a></p>
+</body>
+</html>
