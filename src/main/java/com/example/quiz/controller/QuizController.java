@@ -191,7 +191,7 @@ public class QuizController {
         // 最初の問題へリダイレクト（現状は全体問題フローを利用）
         return "redirect:/quiz/question?no=1";
     }
-    
+
     
     /**
      * カテゴリ別問題表示
